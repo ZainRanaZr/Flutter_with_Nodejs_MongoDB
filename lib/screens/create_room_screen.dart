@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_with_nodejs_1/responsive/responsive.dart';
+import 'package:flutter_with_nodejs_1/resources/socket_methods.dart';
 import 'package:flutter_with_nodejs_1/widgets/custom_button.dart';
 import 'package:flutter_with_nodejs_1/widgets/custom_text.dart';
 import 'package:flutter_with_nodejs_1/widgets/custom_textfield.dart';
@@ -15,6 +16,7 @@ class CreateRoomScreen extends StatefulWidget {
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
   final TextEditingController _nameController = TextEditingController();
+  final SocketMethods _socketMethods = SocketMethods();
 
   @override
   void dispose() {
@@ -45,7 +47,9 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 hintText: "Enter your nick name",
               ),
               SizedBox(height: size.height * 0.045),
-              CustomButton(onTap: () => {}, text: "Create")
+              CustomButton(
+                  onTap: () => _socketMethods.createRoom(_nameController.text),
+                  text: "Create")
             ],
           ),
         ),
