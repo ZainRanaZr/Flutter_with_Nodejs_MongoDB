@@ -19,6 +19,12 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
   final SocketMethods _socketMethods = SocketMethods();
 
   @override
+  void initState() {
+    super.initState();
+    _socketMethods.createRoomSuccessListener(context);
+  }
+
+  @override
   void dispose() {
     super.dispose();
     _nameController.dispose();
@@ -49,7 +55,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               SizedBox(height: size.height * 0.045),
               CustomButton(
                   onTap: () => _socketMethods.createRoom(_nameController.text),
-                  text: "Create")
+                  text: "Create"),
             ],
           ),
         ),

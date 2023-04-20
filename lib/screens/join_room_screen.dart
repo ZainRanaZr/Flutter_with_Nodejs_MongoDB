@@ -51,7 +51,7 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
                 hintText: "Enter Game ID",
               ),
               SizedBox(height: size.height * 0.045),
-              CustomButton(onTap: () => {}, text: "Create")
+              CustomButton(onTap: () => {}, text: "Join")
             ],
           ),
         ),
